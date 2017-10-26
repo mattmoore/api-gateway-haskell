@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Lib
-    ( fetch
-    ) where
+  ( fetch
+  ) where
 
 import Data.ByteString.Lazy
 import Network.HTTP.Simple
