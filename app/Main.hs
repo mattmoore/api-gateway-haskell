@@ -3,7 +3,9 @@
 module Main where
 
 import Lib
-import Network.Wai (responseLBS, Application)
+import qualified Data.ByteString.Lazy       as BL  (unpack)
+import qualified Data.ByteString.Lazy.Char8 as BL8 (pack)
+import Network.Wai (Request, responseLBS, Application, rawPathInfo, rawQueryString)
 import Network.Wai.Handler.Warp (run)
 import Network.HTTP.Simple
 import Network.HTTP.Types (status200)
@@ -17,5 +19,7 @@ main = do
 
 app :: Application
 app req f =
-  fetch "http://mattmoore.io" >>= \response ->
-  f $ responseLBS status200 [(hContentType, "text/plain")] response
+  let baseUrl = "http://mattmoore.io"
+  in
+    fetch (baseUrl ++ (getReqPath req))
+    >>= \response -> f $ responseLBS status200 [(hContentType, "text/plain")] $ response
