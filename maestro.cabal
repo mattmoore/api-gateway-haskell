@@ -1,8 +1,8 @@
-name:                api-gateway
+name:                maestro
 version:             0.1.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/mattmoore/api-gateway-haskell#readme
+homepage:            https://github.com/mattmoore/maestro#readme
 license:             MIT
 license-file:        LICENSE
 author:              Matt Moore
@@ -27,12 +27,12 @@ library
                      , aeson
   default-language:    Haskell2010
 
-executable api-gateway-exe
+executable maestro-exe
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , api-gateway
+                     , maestro
                      , bytestring
                      , HTTP
                      , http-conduit
@@ -41,15 +41,15 @@ executable api-gateway-exe
                      , wai
   default-language:    Haskell2010
 
-test-suite api-gateway-test
+test-suite maestro-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
-                     , api-gateway
+                     , maestro
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/mattmoore/api-gateway-haskell
+  location: https://github.com/mattmoore/maestro
