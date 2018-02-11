@@ -18,8 +18,7 @@ main = do
   run port app
 
 app :: Application
-app req f =
+app req f = do
   let baseUrl = "http://mattmoore.io"
-  in
-    fetch (baseUrl ++ (getReqPath req))
-    >>= \response -> f $ responseLBS status200 [(hContentType, "text/plain")] $ response
+  response <- fetch (baseUrl ++ (getReqPath req))
+  f $ responseLBS status200 [(hContentType, "text/plain")] $ response

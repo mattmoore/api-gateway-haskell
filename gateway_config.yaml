@@ -1,4 +1,18 @@
-testvalue: blah
+opera: "/customers/:id"
+  arias:
+    "/customer-service/:id":
+      before: 
+      after: 
+
+opera: "/customers/:id/loans"
+  arias:
+    "/customer-service/:id":
+      before: 
+      after: 
+    "/loan-service/:id":
+      before: 
+      after: 
+
 routes:
   - url: "http://localhost:9000"
     flow:
